@@ -7,7 +7,6 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 
 import java.math.BigInteger;
-import java.util.UUID;
 
 @Getter
 @MappedSuperclass

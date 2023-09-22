@@ -16,7 +16,7 @@ public class Movie  extends BaseEntity{
     private String originalTitle;
     @Column(length = 1000)
     private String overview;
-    private float popularity;
+    private double popularity;
     private Date releaseDate;
     private BigInteger revenue;
     private int runtime;
