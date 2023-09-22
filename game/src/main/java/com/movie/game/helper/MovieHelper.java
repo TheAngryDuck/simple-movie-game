@@ -1,5 +1,6 @@
 package com.movie.game.helper;
 
+import com.movie.game.enums.Type;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

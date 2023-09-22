@@ -1,4 +1,4 @@
-package com.movie.game.helper;
+package com.movie.game.enums;
 
 public enum Type {
     REVENUE,

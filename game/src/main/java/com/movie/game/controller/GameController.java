@@ -1,7 +1,7 @@
 package com.movie.game.controller;
 
 import com.movie.game.helper.MovieHelper;
-import com.movie.game.helper.Type;
+import com.movie.game.enums.Type;
 import com.movie.game.model.Movie;
 import com.movie.game.service.GameService;
 import lombok.RequiredArgsConstructor;
