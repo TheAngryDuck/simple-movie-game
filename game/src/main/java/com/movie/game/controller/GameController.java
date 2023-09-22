@@ -5,10 +5,7 @@ import com.movie.game.enums.Type;
 import com.movie.game.model.Movie;
 import com.movie.game.service.GameService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -26,8 +23,8 @@ public class GameController {
     @GetMapping
     public Movie getById(){ return service.getById(helper.getId()).get(); }
 
-    @GetMapping("/revenue/{number}")
-    public Movie getByRevenue(@PathVariable BigInteger number){
+    @GetMapping("/revenue")
+    public Movie getByRevenue(@RequestParam BigInteger number){
         Random random = new Random();
         List<Movie> movies;
         if (helper.isHigher()){
@@ -46,8 +43,8 @@ public class GameController {
         return movies.get(random.nextInt(movies.size()));
     }
 
-    @GetMapping("/vote/{number}")
-    public Movie getByVoteAverage(@PathVariable int number){
+    @GetMapping("/vote")
+    public Movie getByVoteAverage(@RequestParam int number){
         Random random = new Random();
         List<Movie> movies;
         if (helper.isHigher()){
@@ -66,8 +63,8 @@ public class GameController {
         return movies.get(random.nextInt(movies.size()));
     }
 
-    @GetMapping("/runtime/{number}")
-    public Movie getByRuntime(@PathVariable int number){
+    @GetMapping("/runtime")
+    public Movie getByRuntime(@RequestParam int number){
         Random random = new Random();
         List<Movie> movies;
         if (helper.isHigher()){
@@ -86,8 +83,8 @@ public class GameController {
         return movies.get(random.nextInt(movies.size()));
     }
 
-    @GetMapping("/popularity/{number}")
-    public Movie getByPopularity(@PathVariable double number){
+    @GetMapping("/popularity")
+    public Movie getByPopularity(@RequestParam double number){
         Random random = new Random();
         List<Movie> movies;
         if (helper.isHigher()){
