@@ -1,0 +1,23 @@
+<h1>Welcome to the movie game!</h1>
+<div style="align-content: center;">
+<section>
+<label id="game-mode-label">Choose game mode</label>
+<mat-radio-group aria-labelledby="game-mode-label"
+                 class="radio-group"
+                 [(ngModel)]="gameType">
+    <mat-radio-button *ngFor="let type of gameTypes" [value]="type" class="radio-button">{{type}}</mat-radio-button>
+</mat-radio-group>
+</section>
+<br>
+<section>
+<label id="game-diffuclty-label">Choose game difficulty</label>
+<mat-radio-group aria-labeledby="game-diffuclty-label"
+                 class="radio-group"
+                 [(ngModel)]="gameDifficulty">
+    <mat-radio-button *ngFor="let difficulty of gameDifficulties" [value]="difficulty" class="radio-button">{{difficulty}}</mat-radio-button>
+</mat-radio-group>
+</section>
+<ng-container *ngIf="gameType !== '' && gameDifficulty !== ''">
+    <a routerLink="/game/{{gameType}}/{{gameDifficulty}}" mat-stroked-button color="primary">Play</a>
+</ng-container>
+</div>
