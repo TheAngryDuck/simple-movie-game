@@ -15,7 +15,7 @@ public class AppConfiguration {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:4200", "http://localhost:3000")
-                        .allowedMethods("OPTIONS", "GET");
+                        .allowedMethods("OPTIONS", "GET","POST");
             }
         };
     }

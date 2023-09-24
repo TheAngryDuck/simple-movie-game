@@ -91,6 +91,11 @@ export class GameboardComponent {
   }
 
   WrongAnswer(){
+    let score = {
+      points: this.score,
+      difficulty: this.difficulty
+    }
+    this.configService.createNewScore(score).subscribe(() => {});
     this.location.back();
   }
 

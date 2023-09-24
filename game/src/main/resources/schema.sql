@@ -14,10 +14,12 @@ CREATE TABLE IF NOT EXISTS movie(
 
 CREATE TABLE IF NOT EXISTS score(
    id                   BIGINT AUTO_INCREMENT PRIMARY KEY
-   ,score               NUMERIC NOT NULL
+   ,points               NUMERIC NOT NULL
    ,difficulty          VARCHAR(252) NOT NULL
 );
-INSERT INTO score(score, difficulty) VALUES (3, 'Easy');
+INSERT INTO score(points, difficulty) VALUES (3, 'Easy');
+INSERT INTO score(points, difficulty) VALUES (1, 'Easy');
+
 
 INSERT INTO movie(original_title,overview,popularity,release_date,revenue,runtime,tagline,title,vote_average,vote_count) VALUES ('Avatar','In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.',150.437577,'2009-12-10',2787965087,162,'Enter the World of Pandora.','Avatar',7.2,11800);
 INSERT INTO movie(original_title,overview,popularity,release_date,revenue,runtime,tagline,title,vote_average,vote_count) VALUES ('Pirates of the Caribbean: At World''s End','Captain Barbossa, long believed to be dead, has come back to life and is headed to the edge of the Earth with Will Turner and Elizabeth Swann. But nothing is quite as it seems.',139.082615,'2007-05-19',961000000,169,'At the end of the world, the adventure begins.','Pirates of the Caribbean: At World''s End',6.9,4500);

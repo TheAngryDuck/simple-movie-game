@@ -1,6 +1,28 @@
 <h1>Welcome to the movie game!</h1>
 <div style="align-content: center;">
 <section>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <span>Top score on easy</span>
+                </td>
+                <td>
+                    <span>Top score on hard</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>{{scoreEasy}}</span>
+                </td>
+                <td>
+                    <span>{{scoreHard}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section>
 <label id="game-mode-label">Choose game mode</label>
 <mat-radio-group aria-labelledby="game-mode-label"
                  class="radio-group"

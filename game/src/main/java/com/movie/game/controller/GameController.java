@@ -8,6 +8,7 @@ import com.movie.game.repository.ScoreRepository;
 import com.movie.game.service.GameService;
 import com.movie.game.service.ScoreService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
@@ -29,13 +30,22 @@ public class GameController {
     public Movie getById(){ return gameService.getById(helper.getId()).get(); }
 
     @GetMapping("/score/easy")
-    public Score getByEasy(){
+    public Integer getByEasy(){
        return scoreService.getHighestEasyScore();
     }
 
     @GetMapping("/score/hard")
-    public Score getByHard(){
-        return scoreService.getHIghestHardScore();
+    public Integer getByHard(){
+        return scoreService.getHighestHardScore();
+    }
+
+    @PostMapping("/score")
+    public ResponseEntity<Score> addNewScore(@RequestBody Score score){
+        if (score != null){
+            return ResponseEntity.ok().body(scoreService.addNewScore(score));
+        }else {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping("/revenue")

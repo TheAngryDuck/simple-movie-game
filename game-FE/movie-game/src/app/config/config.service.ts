@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { movie } from '../type/movie';
+import { score } from '../type/score';
 
 const reqHeaders = new HttpHeaders().set('Content-Type', 'application/json').set('Accept', 'application/json')
 
@@ -36,6 +37,18 @@ export class ConfigService {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("number",revenue);
     return this.http.get<movie>(this.configUrl+"/revenue",{params:queryParams});
+  }
+
+  getTopScoreHard(){
+    return this.http.get<number>(this.configUrl+"/score/hard");
+  }
+
+  getTopScoreEasy(){
+    return this.http.get<number>(this.configUrl+"/score/easy");
+  }
+
+  createNewScore(score: score){
+    return this.http.post<score>(this.configUrl+"/score", score, {headers: reqHeaders})
   }
 }
 

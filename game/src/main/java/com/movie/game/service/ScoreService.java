@@ -12,8 +12,10 @@ public class ScoreService {
 
     private final ScoreRepository repository;
 
-    public Score getHighestEasyScore(){return repository.findTopScoreAndDifficultyContaining("easy");}
+    public Integer getHighestEasyScore(){return repository.findTopScoreOnEasy();}
 
-    public Score getHIghestHardScore(){return repository.findTopScoreAndDifficultyContaining("hard");}
+    public Integer getHighestHardScore(){return repository.findTopScoreOnHard();}
+
+    public Score addNewScore(Score score){return repository.save(score);}
 
 }
