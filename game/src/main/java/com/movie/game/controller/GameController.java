@@ -54,7 +54,7 @@ public class GameController {
         List<Movie> movies;
         if (helper.isHigher()){
             if (helper.isUpperValue(Type.REVENUE,number,0,0)){
-                movies = gameService.getByRevenue(number.subtract(new BigInteger("100000000")), number.subtract(new BigInteger("1")));
+                movies = gameService.getByRevenue(number.subtract(new BigInteger("1000000000")), number.subtract(new BigInteger("1")));
             }else {
                 movies = gameService.getByRevenue(number.add(new BigInteger("1")), number.add(new BigInteger("100000000")));
             }
