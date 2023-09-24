@@ -1,32 +1,55 @@
-<h1>Score: {{score}}</h1>
-<span>{{type}}</span><br>
-<span>{{difficulty}}</span>
-<div *ngIf="movieLeft && movieRight">
+<div class="page">
+    <h1>Score: {{score}}</h1>
     <table>
-    <tbody>
-        <tr>
-            <td>
-                <h3>{{movieLeft.title}}</h3>
-            </td>
-            <td>
-                <h3>{{movieRight.title}}</h3>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>{{movieLeft.overview}}</p>
-            </td>
-            <td>
-                <p>{{movieRight.overview}}</p>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <button mat-raised-button color="accent" (click)="Higher()">Higher</button>
-                <button mat-raised-button color="warn" (click)="Lower()">Lower</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+        <tbody>
+            <tr>
+                <td>
+                    Game mode:
+                </td>
+                <td>
+                    <span>{{type}}</span><br>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Game difficulty:
+                </td>
+                <td>
+                    <span>{{difficulty}}</span>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="movieLeft && movieRight">
+        <table>
+        <tbody>
+            <tr>
+                <td>
+                    <h3>{{movieLeft.title}}</h3>
+                </td>
+                <td>
+                    <h3>{{movieRight.title}}</h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>{{movieLeft.overview}}</p>
+                </td>
+                <td>
+                    <p>{{movieRight.overview}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button mat-raised-button color="accent" (click)="Higher()">Higher</button>
+                    <button mat-raised-button color="warn" (click)="Lower()">Lower</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
 </div>
+
