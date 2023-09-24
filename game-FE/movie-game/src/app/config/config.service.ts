@@ -15,27 +15,31 @@ export class ConfigService {
     return this.http.get<movie>(this.configUrl);
   }
 
-  getMovieByPopularity(popularity: number){
+  getMovieByPopularity(popularity: number, type: string){
     let queryParams = new HttpParams();
     queryParams = queryParams.append("number",popularity);
+    queryParams = queryParams.append("type",type);
     return this.http.get<movie>(this.configUrl+"/popularity",{params:queryParams});
   }
 
-  getMovieByRuntime(runtime: number){
+  getMovieByRuntime(runtime: number, type: string){
     let queryParams = new HttpParams();
     queryParams = queryParams.append("number",runtime);
+    queryParams = queryParams.append("type",type);
     return this.http.get<movie>(this.configUrl+"/runtime",{params:queryParams});
   }
 
-  getMovieByVote(vote: number){
+  getMovieByVote(vote: number, type: string){
     let queryParams = new HttpParams();
     queryParams = queryParams.append("number",vote);
+    queryParams = queryParams.append("type",type);
     return this.http.get<movie>(this.configUrl+"/vote",{params:queryParams});
   }
 
-  getMovieByRevenue(revenue: number){
+  getMovieByRevenue(revenue: number, type: string){
     let queryParams = new HttpParams();
     queryParams = queryParams.append("number",revenue);
+    queryParams = queryParams.append("type",type);
     return this.http.get<movie>(this.configUrl+"/revenue",{params:queryParams});
   }
 

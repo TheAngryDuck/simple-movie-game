@@ -41,8 +41,9 @@ public class EndpointTests {
     @Test
     public void movieRevenueEndpointReturnsMovie(){
         var test = given().get("/game").then().statusCode(200).extract().as(Movie.class);
-        Map<String, BigInteger> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("number", test.getRevenue());
+        params.put("type", "Easy");
         Movie movie = given().params(params).get("/game/revenue").then().extract().as(Movie.class);
         assertThat(movie.getRevenue() != null);
 
@@ -51,24 +52,27 @@ public class EndpointTests {
     @Test
     public void movieVoteAverageEndpointReturnsMovie(){
         var test = given().get("/game").then().statusCode(200).extract().as(Movie.class);
-        Map<String, Integer> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("number", test.getVoteAverage());
+        params.put("type", "Easy");
         given().params(params).get("/game/vote").then().statusCode(200);
     }
 
     @Test
     public void movieRuntimeEndpointReturnsMovie(){
         var test = given().get("/game").then().statusCode(200).extract().as(Movie.class);
-        Map<String, Integer> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("number", test.getRuntime());
+        params.put("type", "Easy");
         given().params(params).get("/game/runtime").then().statusCode(200);
     }
 
     @Test
     public void moviePopularityEndpointReturnsMovie(){
         var test = given().get("/game").then().statusCode(200).extract().as(Movie.class);
-        Map<String, Double> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("number", test.getPopularity());
+        params.put("type", "Easy");
         Movie movie = given().params(params).get("/game/popularity").then().extract().as(Movie.class);
         assertThat(movie.getPopularity() != 0.0);
     }

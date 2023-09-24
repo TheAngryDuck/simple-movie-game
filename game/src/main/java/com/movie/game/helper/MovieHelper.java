@@ -8,6 +8,8 @@ import java.math.BigInteger;
 import java.util.Objects;
 import java.util.Random;
 
+import static com.movie.game.enums.TypeLimits.*;
+
 @Service
 @RequiredArgsConstructor
 public class MovieHelper {
@@ -31,18 +33,18 @@ public class MovieHelper {
 
     public boolean isUpperValue(Type type, BigInteger revenue, int smallNumber, double popularity){
         return switch (type) {
-            case VOTE -> smallNumber == 10;
-            case RUNTIME -> smallNumber == 338;
-            case REVENUE -> Objects.equals(revenue, new BigInteger("2787965087"));
-            case POPULARITY -> popularity == 875.5813;
+            case VOTE -> smallNumber == voteUpperLimit;
+            case RUNTIME -> smallNumber == runtimeUpperLimit;
+            case REVENUE -> Objects.equals(revenue, revenueUpperLimit);
+            case POPULARITY -> popularity == popularityUpperLimit;
         };
     }
 
     public boolean isLowerValue(Type type, BigInteger revenue, int smallNumber, double popularity){
         return switch (type) {
-            case VOTE, RUNTIME -> smallNumber == 0;
-            case REVENUE -> Objects.equals(revenue, new BigInteger("0"));
-            case POPULARITY -> popularity == 0.000372;
+            case VOTE, RUNTIME -> smallNumber == voteLowerLimit;
+            case REVENUE -> Objects.equals(revenue, revenueLowerLimit);
+            case POPULARITY -> popularity == popularityLowerLimit;
         };
     }
 }

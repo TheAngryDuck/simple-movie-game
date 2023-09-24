@@ -26,7 +26,9 @@ export class LandingComponent {
 
   ngOnInit(): void {
     this.configService.getTopScoreEasy().subscribe((data: number) => {
+      if(data > 0){
       this.scoreEasy = data;
+      }
     });
 
     this.configService.getTopScoreHard().subscribe((data: number) => {

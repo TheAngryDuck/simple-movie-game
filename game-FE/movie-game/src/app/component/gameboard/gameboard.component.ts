@@ -33,55 +33,49 @@ export class GameboardComponent {
     })
   }
 
-  getByRevenue(){
-    this.configService.getMovieByRevenue(Number(this.movieLeft?.revenue)).subscribe((data: movie) => {
+  getByRevenue(type: string){
+    this.configService.getMovieByRevenue(Number(this.movieLeft?.revenue),type).subscribe((data: movie) => {
           this.movieRight = data;
         })
   }
 
-  getByVote(){
-      this.configService.getMovieByVote(Number(this.movieLeft?.voteAverage)).subscribe((data: movie) => {
+  getByVote(type: string){
+      this.configService.getMovieByVote(Number(this.movieLeft?.voteAverage),type).subscribe((data: movie) => {
           this.movieRight = data;
       })
   }
 
-  getByRuntime(){
-      this.configService.getMovieByRuntime(Number(this.movieLeft?.runtime)).subscribe((data: movie) => {
+  getByRuntime(type: string){
+      this.configService.getMovieByRuntime(Number(this.movieLeft?.runtime),type).subscribe((data: movie) => {
           this.movieRight = data;
       })
   }
 
-  getByPopularity(){
-      this.configService.getMovieByPopularity(Number(this.movieLeft?.popularity)).subscribe((data: movie) => {
+  getByPopularity(type: string){
+      this.configService.getMovieByPopularity(Number(this.movieLeft?.popularity),type).subscribe((data: movie) => {
           this.movieRight = data;
       })
   }
 
   populateRight() {
-    if(this.difficulty == 'Easy'){
-      this.configService.getMovie().subscribe((data: movie) => {
-        this.movieRight = data;
-      })
-    }else{
       switch(this.type){
         case 'Revenue': {
-          this.getByRevenue();
+          this.getByRevenue(this.difficulty);
           break;
         }
         case 'Vote average':{
-          this.getByVote();
+          this.getByVote(this.difficulty);
           break;
         }
         case 'Runtime':{
-          this.getByRuntime();
+          this.getByRuntime(this.difficulty);
           break;
         }
         case 'Popularity':{
-          this.getByPopularity();
+          this.getByPopularity(this.difficulty);
           break;
         }
       }
-    }
   }
 
   CorrectAnswer(){
