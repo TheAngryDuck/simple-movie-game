@@ -4,7 +4,6 @@ import com.movie.game.helper.MovieHelper;
 import com.movie.game.enums.Type;
 import com.movie.game.model.Movie;
 import com.movie.game.model.Score;
-import com.movie.game.repository.ScoreRepository;
 import com.movie.game.service.GameService;
 import com.movie.game.service.ScoreService;
 import lombok.RequiredArgsConstructor;
